@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"strings"
+	"bytes"
 	"time"
 )
 
@@ -59,7 +59,7 @@ func (pl printfLogger) Error(err error, msg string, keysAndValues ...interface{}
 // formatString returns a logfmt-like format string for the number of
 // key/values.
 func formatString(numKeysAndValues int) string {
-	var sb strings.Builder
+	var sb bytes.Buffer
 	sb.WriteString("%s")
 	if numKeysAndValues > 0 {
 		sb.WriteString(", ")
